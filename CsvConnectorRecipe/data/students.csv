@@ -1,0 +1,11 @@
+student_id,student_name,birth_year,enrollment_year,gpa,university,department,degree,major,advisor_name,advisor_email,subjects,skills,country,city
+S001,Alice Chen,2003,2022,3.85,MIT,Computer Science,BSc,Artificial Intelligence,Marcus Hill,mhill@mit.edu,Calculus|Linear Algebra|ML Foundations|Probability,Python|TensorFlow|PyTorch|Git,USA,Cambridge
+S002,Bilal Ahmed,2002,2021,3.72,MIT,Computer Science,BSc,Systems,Marcus Hill,mhill@mit.edu,Operating Systems|Computer Networks|Calculus|Distributed Systems,C|Rust|Linux|Git,USA,Cambridge
+S003,Clara Okafor,2001,2020,3.91,MIT,Mathematics,MSc,Applied Mathematics,Sara Patel,spatel@mit.edu,Real Analysis|Linear Algebra|Statistics|Numerical Methods,MATLAB|Python|R,USA,Boston
+S004,Dimitri Volkov,2002,2021,3.55,Stanford,Computer Science,BSc,Artificial Intelligence,Helen Yang,hyang@stanford.edu,Linear Algebra|Probability|ML Foundations|Deep Learning,Python|PyTorch|JAX,USA,Palo Alto
+S005,Esra Yilmaz,2003,2022,3.78,Stanford,Electrical Engineering,BSc,Computer Engineering,Robert Kim,rkim@stanford.edu,Digital Logic|Signal Processing|Calculus|Operating Systems,Verilog|C|Python,USA,Palo Alto
+S006,Felix Mueller,2002,2021,3.66,ETH Zurich,Computer Science,BSc,Systems,Anke Becker,abecker@ethz.ch,Algorithms|Operating Systems|Computer Networks|Distributed Systems,C|Rust|Go|Linux,Switzerland,Zurich
+S007,Greta Lindqvist,2001,2020,3.83,ETH Zurich,Mathematics,MSc,Statistics,Anke Becker,abecker@ethz.ch,Real Analysis|Probability|Statistics|Bayesian Inference,R|Python|Stan,Switzerland,Zurich
+S008,Hiroshi Tanaka,2003,2022,3.69,University of Tokyo,Computer Science,BSc,Artificial Intelligence,Kenji Sato,ksato@u-tokyo.ac.jp,Linear Algebra|ML Foundations|Probability|Computer Vision,Python|PyTorch|OpenCV,Japan,Tokyo
+S009,Isabela Costa,2002,2021,3.74,University of Sao Paulo,Computer Science,BSc,Data Science,Luis Pereira,lpereira@usp.br,Statistics|Probability|ML Foundations|Databases,Python|SQL|R|Spark,Brazil,Sao Paulo
+S010,Jonas Weber,2003,2022,3.81,ETH Zurich,Computer Science,BSc,Artificial Intelligence,Anke Becker,abecker@ethz.ch,Algorithms|ML Foundations|Linear Algebra|Deep Learning,Python|PyTorch|Rust,Switzerland,Zurich

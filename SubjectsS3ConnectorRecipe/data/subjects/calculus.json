@@ -1,0 +1,7 @@
+{
+  "name": "Calculus",
+  "level": "Undergraduate",
+  "description": "The mathematics of change: limits, derivatives, integrals, and infinite series.",
+  "topics": ["Limits", "Derivatives", "Integrals", "Series", "Multivariable Calculus"],
+  "bookIsbns": ["9781285740621", "9780471000051"]
+}

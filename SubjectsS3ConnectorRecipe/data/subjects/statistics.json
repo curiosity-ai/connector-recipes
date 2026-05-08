@@ -1,0 +1,7 @@
+{
+  "name": "Statistics",
+  "level": "Graduate",
+  "description": "Estimation, hypothesis testing, and modeling under uncertainty.",
+  "topics": ["Estimation", "Hypothesis Testing", "Regression", "Bayesian Inference", "Resampling"],
+  "bookIsbns": ["9780387402727"]
+}

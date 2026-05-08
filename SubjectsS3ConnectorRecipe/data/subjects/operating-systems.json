@@ -1,0 +1,7 @@
+{
+  "name": "Operating Systems",
+  "level": "Undergraduate",
+  "description": "Processes, memory, file systems, and the abstractions that hide hardware from programs.",
+  "topics": ["Processes", "Memory Management", "File Systems", "Concurrency", "Scheduling"],
+  "bookIsbns": ["9780133592620", "9781118063330"]
+}

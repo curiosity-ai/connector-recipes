@@ -1,0 +1,7 @@
+{
+  "name": "Linear Algebra",
+  "level": "Undergraduate",
+  "description": "Vector spaces, matrices, linear transformations, and eigenvalues.",
+  "topics": ["Vectors", "Matrices", "Vector Spaces", "Eigenvalues", "Linear Transformations"],
+  "bookIsbns": ["9780980232776"]
+}

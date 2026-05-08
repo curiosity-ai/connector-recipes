@@ -52,3 +52,20 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# AI 
+CLAUDE.md 
+AGENT.md 
+TODO.md
+
+# Launch Settings inside projects that are under project/Properties
+**/.launchSettings.json
+**/*.launchSettings.json
+**/**/.launchSettings.json
+**/**/*.launchSettings.json
+**/**/**/.launchSettings.json
+**/**/**/*.launchSettings.json
+**/**/**/**/.launchSetting.json
+**/**/**/**/*.launchSettings.json
+**/**/**/**/**/.launchSettings.json
+**/**/**/**/**/*.launchSettings.json

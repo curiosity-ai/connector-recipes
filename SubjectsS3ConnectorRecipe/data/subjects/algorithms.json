@@ -1,0 +1,7 @@
+{
+  "name": "Algorithms",
+  "level": "Undergraduate",
+  "description": "Design and analysis of efficient algorithms over data structures.",
+  "topics": ["Sorting", "Graph Algorithms", "Dynamic Programming", "Greedy Algorithms", "Complexity Analysis"],
+  "bookIsbns": ["9780262033848"]
+}
