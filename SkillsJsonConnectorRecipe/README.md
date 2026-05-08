@@ -67,38 +67,40 @@ RECIPE_JSON_PATH=/path/to/skills.json dotnet run
 
 ## Sample queries (paste into the workspace **Shell**)
 
+> Traversal uses `.Out(targetType, edgeName)` for *both* directions — the edge constant tells you which way. Forward `RequiresSkill` and reverse `RequiredBy` are paired, so "skills that PyTorch requires" → `.Out(Skill, RequiresSkill)`; "skills that require Python" → `.Out(Skill, RequiredBy)`.
+
 ```csharp
 // Sanity check — every skill type and how it's connected.
 return Q().StartAt(N.Skill.Type).EmitNeighborsSummary();
 ```
 
 ```csharp
-// Walk a prereq chain backwards: what does PyTorch require?
+// Walk forward along the prereq edge: what does PyTorch require?
 return Q().StartAt(N.Skill.Type, "PyTorch")
           .Out(N.Skill.Type, E.RequiresSkill)
           .Emit("N");
 ```
 
 ```csharp
-// Inverse — what skills require Python? (Python's "downstream" graph)
+// Walk the reverse edge: what skills require Python? (Python's "downstream" graph)
 return Q().StartAt(N.Skill.Type, "Python")
-          .In(N.Skill.Type, E.RequiresSkill)
+          .Out(N.Skill.Type, E.RequiredBy)
           .Emit("N");
 ```
 
 ```csharp
-// All "Library" skills, sorted by popularity.
+// All skills in the "Library" category.
 return Q().StartAt(N.SkillCategory.Type, "Library")
-          .In(N.Skill.Type)
-          .Emit("N", [N.Skill.Name, N.Skill.Popularity]);
+          .Out(N.Skill.Type, E.CategoryOf)
+          .Emit("N");
 ```
 
 ```csharp
 // Combined with the CSV recipe: which students have skills that require Python?
 // (Run the CSV recipe first so Student nodes exist.)
 return Q().StartAt(N.Skill.Type, "Python")
-          .In(N.Skill.Type, E.RequiresSkill)   // skills that require Python
-          .In(N.Student.Type)                  // students with those skills
+          .Out(N.Skill.Type, E.RequiredBy)     // skills that require Python
+          .Out(N.Student.Type, E.SkillOf)      // students with those skills
           .Emit("N");
 ```
 

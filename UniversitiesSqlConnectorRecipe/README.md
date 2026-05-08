@@ -70,40 +70,42 @@ RECIPE_DB_PATH=/tmp/u.db RECIPE_SEED_SQL=/path/to/seed.sql dotnet run
 
 ## Sample queries (paste into the workspace **Shell**)
 
+> Traversal is always `.Out(targetType, edgeName)`. To go in the "reverse" direction (e.g. from University to its Departments), pass the reverse-edge constant — `HasDepartment` is paired with `PartOf`, `HasFaculty` with `TeachesIn`, `ResearchedBy` with `Researches`.
+
 ```csharp
 // Sanity check.
 return Q().StartAt(N.University.Type).EmitNeighborsSummary();
 ```
 
 ```csharp
-// All programs offered by MIT, by department.
+// All programs offered by MIT (University → Departments → Programs).
 return Q().StartAt(N.University.Type, "MIT")
-          .In(N.Department.Type)
-          .Out(N.Program.Type)
-          .Emit("N", [N.Program.Name, N.Program.DegreeLevel]);
+          .Out(N.Department.Type, E.HasDepartment)
+          .Out(N.Program.Type,    E.OffersProgram)
+          .Emit("N");
 ```
 
 ```csharp
 // Faculty researching "Artificial Intelligence" — across all universities.
 return Q().StartAt(N.ResearchArea.Type, "Artificial Intelligence")
-          .In(N.Faculty.Type)
+          .Out(N.Faculty.Type, E.ResearchedBy)
           .Emit("N");
 ```
 
 ```csharp
-// Highest h-index per university.
-return Q().StartAt(N.University.Type)
-          .In(N.Department.Type)
-          .In(N.Faculty.Type)
-          .Emit("N", [N.Faculty.Name, N.Faculty.HIndex]);
+// All faculty at MIT (University → Departments → Faculty).
+return Q().StartAt(N.University.Type, "MIT")
+          .Out(N.Department.Type, E.HasDepartment)
+          .Out(N.Faculty.Type,    E.HasFaculty)
+          .Emit("N");
 ```
 
 ```csharp
 // Combined with the CSV recipe: which students are at universities ranked
-// in the global top 5?
+// in the global top 5? Filter on a property, then walk the reverse edge.
 return Q().StartAt(N.University.Type)
           .Where(n => n.GetInt(N.University.Ranking) <= 5)
-          .In(N.Student.Type)
+          .Out(N.Student.Type, E.EnrolledStudent)
           .Emit("N");
 ```
 

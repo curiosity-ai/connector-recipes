@@ -104,6 +104,8 @@ aws s3 sync data/ s3://my-curriculum-bucket/
 
 ## Sample queries (paste into the workspace **Shell**)
 
+> Traversal is always `.Out(targetType, edgeName)` — there is no `.In(...)`. To go in the "reverse" direction, pass the paired reverse-edge constant (`RecommendedFor`, `Wrote`, `CoveredIn`, …).
+
 ```csharp
 // Sanity check — relationship summary for the subject domain.
 return Q().StartAt(N.Subject.Type).EmitNeighborsSummary();
@@ -112,32 +114,39 @@ return Q().StartAt(N.Subject.Type).EmitNeighborsSummary();
 ```csharp
 // All topics covered by Calculus.
 return Q().StartAt(N.Subject.Type, "Calculus")
-          .Out(N.Topic.Type)
+          .Out(N.Topic.Type, E.Covers)
           .Emit("N");
 ```
 
 ```csharp
-// All books recommended for Deep Learning, with their authors.
+// All books recommended for Deep Learning.
 return Q().StartAt(N.Subject.Type, "Deep Learning")
-          .Out(N.Book.Type)
-          .Emit("N")
-          .Out(N.Author.Type)
+          .Out(N.Book.Type, E.RecommendsBook)
           .Emit("N");
 ```
 
 ```csharp
-// Books that cover more than one subject (author cross-pollination).
+// Authors of every book recommended for Deep Learning (two-hop).
+return Q().StartAt(N.Subject.Type, "Deep Learning")
+          .Out(N.Book.Type, E.RecommendsBook)
+          .Out(N.Author.Type, E.WrittenBy)
+          .Emit("N");
+```
+
+```csharp
+// Per-book relationship summary — useful for spotting books that span multiple subjects.
 return Q().StartAt(N.Book.Type)
           .EmitNeighborsSummary();
 ```
 
 ```csharp
-// Combined with the CSV recipe: which students are studying subjects whose
-// reading list includes books by Sheldon Ross?
+// Combined with the CSV recipe: which students study subjects whose reading
+// list includes books by Sheldon Ross? Walk Author → Book → Subject → Student
+// using only reverse-edge constants.
 return Q().StartAt(N.Author.Type, "Sheldon Ross")
-          .In(N.Book.Type)
-          .In(N.Subject.Type)
-          .In(N.Student.Type)
+          .Out(N.Book.Type,    E.Wrote)
+          .Out(N.Subject.Type, E.RecommendedFor)
+          .Out(N.Student.Type, E.StudiedBy)
           .Emit("N");
 ```
 
