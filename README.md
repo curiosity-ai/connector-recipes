@@ -2,7 +2,9 @@
 
 A library of self-contained, runnable examples for ingesting common source formats — CSV, JSON, S3, SQL — into a [Curiosity](https://curiosity.ai) knowledge-graph workspace.
 
-Every recipe in this repo targets the **same imaginary domain** — a small academic knowledge graph of students, universities, subjects, and skills — and demonstrates how four connectors reading from four different sources can **cumulatively build one graph**, each one deepening a different slice of it.
+Every recipe targets the **same imaginary domain** — a small academic graph of students, universities, subjects, and skills — and shows how four connectors reading from four different sources can **cumulatively build one graph**, merging on shared keys.
+
+Each recipe is structured to make reuse explicit: one generic source-format file you keep, one schema file you replace, one ingestion file you replace, and a tiny `Program.cs` that wires them together.
 
 ---
 
@@ -11,17 +13,18 @@ Every recipe in this repo targets the **same imaginary domain** — a small acad
 1. [What is a data connector?](#what-is-a-data-connector)
 2. [Why write one?](#why-write-one)
 3. [Prerequisites](#prerequisites)
-4. [Why multiple connectors for one graph?](#why-multiple-connectors-for-one-graph)
-5. [The example domain](#the-example-domain)
-6. [The recipes](#the-recipes)
+4. [The four samples](#the-four-samples)
+5. [Why multiple connectors for one graph?](#why-multiple-connectors-for-one-graph)
+6. [Code shape (shared across samples)](#code-shape-shared-across-samples)
 7. [Running them](#running-them)
-8. [License](#license)
+8. [Starting your own from a sample](#starting-your-own-from-a-sample)
+9. [License](#license)
 
 ---
 
 ## What is a data connector?
 
-A **data connector** is a small program that reads data from a source — a file, an API, a database — and writes it into a Curiosity workspace as a **knowledge graph**: a network of typed **nodes** (entities like *Customer*, *Product*, *SupportCase*) connected by typed **edges** (relationships like *Purchased*, *AssignedTo*, *DependsOn*).
+A **data connector** is a small program that reads data from a source — a file, an API, a database — and writes it into a Curiosity workspace as a **knowledge graph**: typed **nodes** (entities like *Customer*, *Product*, *SupportCase*) connected by typed **edges** (relationships like *Purchased*, *AssignedTo*, *DependsOn*).
 
 Once your data lives in the graph, the workspace gives you:
 
@@ -30,151 +33,104 @@ Once your data lives in the graph, the workspace gives you:
 - A query language for traversal, aggregation, and ad-hoc analysis.
 - Hooks for natural-language search, embeddings, and conversational interfaces.
 
-A connector is the bridge from **your data** to **that experience**.
-
 ## Why write one?
 
 Most useful when:
 
-- Your data is **relational by nature** but lives in formats that make those relationships hard to follow (CSVs, log files, REST endpoints, scattered JSON exports).
-- You want to **unify multiple sources** behind one searchable interface — e.g. customers from a CRM, tickets from a support system, devices from an inventory database, all linked.
-- You want **non-technical users to explore the data** without writing SQL or building dashboards.
+- Your data is **relational by nature** but lives in formats that hide those relationships (CSVs, REST endpoints, scattered JSON exports).
+- You want to **unify multiple sources** behind one searchable interface.
+- You want **non-technical users to explore the data** without SQL.
 - You're prototyping a knowledge-graph application and need real data in fast.
 
-A connector is **not** a streaming pipeline replacement. It's an ingestion job — run it on a schedule (cron, CI, a workflow runner) or on demand.
+A connector is **not** a streaming pipeline replacement. It's an ingestion job — run it on a schedule (cron, CI) or on demand.
 
 ## Prerequisites
 
 - **.NET 10 SDK** (`dotnet --version` should report `10.x`).
-- A **Curiosity workspace** you can connect to. Local workspaces typically run at `http://localhost:8080/`; hosted workspaces have their own URL.
-- An **API token** from that workspace. Generate one in the workspace UI:
-  `Manage → API integrations → Create API Token`. Copy the token value — it's shown only once.
+- A **Curiosity workspace** you can connect to. Local workspaces typically run at `http://localhost:8080/`.
+- An **API token** from that workspace: `Manage → API integrations → Create API Token`.
 
-That's it. Everything else comes from NuGet.
+## The four samples
 
----
+| Sample | Source format | What it owns in the graph |
+|---|---|---|
+| [`CsvSample`](./CsvSample/) | CSV | Student-centric backbone |
+| [`JsonSample`](./JsonSample/) | JSON | Skill taxonomy + learning resources |
+| [`S3Sample`](./S3Sample/) | S3 (local fallback) | Subjects, topics, books, authors |
+| [`SqlSample`](./SqlSample/) | SQLite | Universities, departments, programs, faculty |
+
+Each one is independent, re-runnable, and self-contained — including its own data folder.
 
 ## Why multiple connectors for one graph?
 
 Real-world knowledge rarely lives in one place. The information you'd want about a single concept — say, a university — is spread across:
 
-- A **spreadsheet** maintained by an admissions office (rows of students with their majors).
-- A **JSON dump** from some skill-tagging service (a taxonomy of programming languages, frameworks, tools).
-- An **S3 bucket** of course materials (one document per subject, with topics and recommended books).
-- A **relational database** of institutional metadata (universities, departments, programs, faculty).
+- A **spreadsheet** maintained by an admissions office.
+- A **JSON dump** from a skill-tagging service.
+- An **S3 bucket** of course materials.
+- A **relational database** of institutional metadata.
 
-Each source covers a different slice and uses a different format. None of them on their own gives you the whole picture.
-
-The pattern this repo demonstrates: **write one connector per source, and let them merge automatically on shared keys.** When two connectors emit a node with the same `[Key]` (e.g. `Skill.Name = "Python"` or `University.Name = "MIT"`), the workspace **doesn't duplicate** — it merges. New `[Property]` fields stack onto the same node, new edges attach to it, and queries can traverse across data that originally lived in completely different systems.
-
-The result: one graph, four data sources, and traversals like *"show me students at top-5-ranked universities whose skills require Python"* that cross every source boundary.
-
-This is the right pattern when:
-
-- You have **stable identifiers** that appear in more than one source (an email, an ID, a name that's effectively unique in context).
-- You want each source's connector to stay **independent and re-runnable** — owned by whichever team owns that source.
-- You expect the graph to **grow over time** by adding more connectors, not by rewriting one big one.
-
-## The example domain
-
-All four recipes target a small academic knowledge graph. The entities and how they relate:
-
-```
-                              Country
-                                 ▲
-                                 │ BasedIn / In
-                                 │
-        ┌─────────► University ──┴──► City ◄────── Student ──► Skill ──► SkillCategory
-        │             │                              │           │
-        │ PartOf      │ HasDepartment                │ HasMajor  │ Teaches (LearningResource)
-        │             ▼                              │           │
-        │          Department ──► Program            │           │ RequiresSkill (Skill→Skill)
-        │             │  │                           │           │
-        │             │  └─► HasFaculty ──► Faculty ─┘           │
-        │             │                       │                  │
-        │             └─► HasResearchArea ──► ResearchArea       │
-        │                                                        │
-        │ Studies                                                │
-        ▼                                                        │
-     Subject ──► Topic                                           │
-        │                                                        │
-        ├──► Book ──► Author                                     │
-        │                                                        │
-        └────────────────────────────────────────────────────────┘
-```
-
-The main entities, grouped by what they represent:
-
-- **People** — `Student`, `Advisor`/`Faculty` (linked by email).
-- **Where they are** — `University`, `Department`, `City`, `Country`.
-- **What they pursue** — `Degree` (BSc / MSc / PhD), `Major`, `Program` (full degree program with language, duration, tuition).
-- **What they learn** — `Subject`, `Topic` (within a subject), `Skill`, `SkillCategory` (Language / Library / Tool / Framework).
-- **Materials** — `Book`, `Author`, `LearningResource` (tutorials, online courses).
-- **What faculty research** — `ResearchArea`.
-
-Crucially, **none of the four recipes creates all of these on its own**. Each one is responsible for a slice. The slices fit together through shared keys.
-
-## The recipes
-
-| Recipe | Source format | What slice of the graph it owns |
-|---|---|---|
-| [`CsvConnectorRecipe`](./CsvConnectorRecipe/) | CSV | Student-centric backbone |
-| [`SkillsJsonConnectorRecipe`](./SkillsJsonConnectorRecipe/) | JSON | Skill taxonomy & resources |
-| [`SubjectsS3ConnectorRecipe`](./SubjectsS3ConnectorRecipe/) | S3 (with local fallback) | Subject content & reading lists |
-| [`UniversitiesSqlConnectorRecipe`](./UniversitiesSqlConnectorRecipe/) | SQLite | Institutional metadata |
-
-### `CsvConnectorRecipe` — the backbone
-
-Reads a flat `students.csv` where each row carries a Student plus their University, Department, Degree, Major, Advisor, City, Country, and pipe-delimited Subjects and Skills. The recipe **explodes** that flat row into typed nodes and connects them with bidirectional edges. After it runs, the graph has every Student in the dataset and a thin first reference to the Skill / Subject / University / Advisor nodes the other recipes will deepen.
-
-### `SkillsJsonConnectorRecipe` — the skill graph
-
-Reads a `skills.json` document where each skill carries a category, description, popularity score, year of introduction, and lists of *prerequisite* and *related* skills. It **deepens** the Skill nodes the CSV connector seeded with rich properties, and adds two new entities — `SkillCategory` and `LearningResource` — plus the cross-skill edges (`RequiresSkill` for prereqs, `RelatedToSkill` for similarity). After running both, you can ask the graph things like *"which students have skills that transitively require Python?"*.
-
-### `SubjectsS3ConnectorRecipe` — subjects and books
-
-Reads from an S3 bucket organised as `subjects/<name>.json` and `books/<isbn>.json` (with a local-filesystem fallback so the recipe runs without AWS credentials). Each subject document references its books by ISBN, decoupling subject metadata from book metadata so the same book can appear under multiple subjects. The connector **deepens** the Subject nodes the CSV connector seeded with topics and recommended reading, and introduces three new entities: `Topic`, `Book`, and `Author`.
-
-### `UniversitiesSqlConnectorRecipe` — institutional metadata
-
-Reads from a SQLite database (auto-seeded from a `seed.sql` script on first run; the recipe documents how to swap in PostgreSQL/SQL Server). Joins universities → departments → programs → faculty → research areas across six tables. **Deepens** the University and Department nodes the CSV connector seeded with founded year, world ranking, head-of-department contacts, and building names; introduces three new entities: `Program`, `Faculty` (extending CSV's `Advisor` by email key), and `ResearchArea`.
-
-### How the slices fit together
-
-Run the recipes in any order — the merge happens by key, not by sequence:
+The pattern these samples demonstrate: **write one connector per source, and let them merge on shared keys.** When two connectors emit a node with the same `[Key]` (e.g. `Skill.Name = "Python"`), the workspace **doesn't duplicate** — it merges. New `[Property]` fields stack onto the same node, new edges attach to it, and queries can traverse across data that originally lived in completely different systems.
 
 | Shared key | Seeded by | Enriched by |
 |---|---|---|
-| `Skill.Name` (e.g. "Python") | CSV (linked to Students) | JSON (category, prereqs, related, learning resources) |
-| `Subject.Name` (e.g. "Calculus") | CSV (linked to Students) | S3 (level, topics, recommended books, authors) |
-| `University.Name` (e.g. "MIT") | CSV (linked to Students) | SQL (founded year, ranking, programs, faculty, research areas) |
-| `Department` composite key | CSV | SQL (head contact + building) |
-| `Country.Name` | CSV (via City) | SQL (links University → Country directly) |
+| `Skill.Name` (e.g. "Python") | `CsvSample` (linked to Students) | `JsonSample` (category, prereqs, related, learning resources) |
+| `Subject.Name` (e.g. "Calculus") | `CsvSample` (linked to Students) | `S3Sample` (level, topics, recommended books) |
+| `University.Name` (e.g. "MIT") | `CsvSample` (linked to Students) | `SqlSample` (founded year, ranking, programs, faculty) |
+| `Department.Id` (composite) | `CsvSample` | `SqlSample` (head contact + building) |
+| `Country.Name` | `CsvSample` (via City) | `SqlSample` (links University → Country directly) |
 
-Each recipe's README has 4–5 sample `Q()` queries — including cross-recipe traversals that only become possible once two or more recipes have populated the same workspace.
+## Code shape (shared across samples)
+
+All four projects share the same three-file layout, designed so the reusable part stays separate from the part you rewrite for your data:
+
+```
+<Sample>/
+├── <Sample>.csproj
+├── data/...                    # the sample input data
+└── src/
+    ├── <Format>Source.cs       ← generic: CSV / JSON / S3 / SQLite reader
+    ├── Schema.cs               ← dataset-specific: [Node] / [Key] / [Property] / edge constants
+    ├── <Domain>Ingest.cs       ← dataset-specific: row model + RegisterSchemaAsync + Ingest
+    └── Program.cs              ← ~25-line glue: load → register → ingest → commit
+```
+
+All code lives in a single namespace: `Curiosity.Library.Recipes`.
 
 ## Running them
 
-Each recipe is an independent .NET 10 console app. From the repo root:
+Each sample is an independent .NET 10 console app. From the repo root:
 
 ```bash
 export CURIOSITY_URL=http://localhost:8080/
-export CURIOSITY_API_TOKEN=<your token from "Manage → API integrations">
+export CURIOSITY_API_TOKEN=<token from "Manage → API integrations">
 
 # Run any subset, in any order — they merge automatically on shared keys.
-dotnet run --project CsvConnectorRecipe
-dotnet run --project SkillsJsonConnectorRecipe
-dotnet run --project SubjectsS3ConnectorRecipe
-dotnet run --project UniversitiesSqlConnectorRecipe
+dotnet run --project CsvSample
+dotnet run --project JsonSample
+dotnet run --project S3Sample
+dotnet run --project SqlSample
 ```
 
-To verify the result, open the workspace UI → `Manage → Shell` and try:
+Verify the result in the workspace UI → `Manage → Shell`:
 
 ```csharp
 return Q().EmitNeighborsSummary();
 ```
 
-For source-format-specific details (schema choices, pitfalls, sample queries) see each recipe's own README.
+For source-format-specific details (schema choices, sample queries, environment variables) see each sample's own README.
+
+## Starting your own from a sample
+
+Pick the sample whose source format matches yours and follow its **"Reusing this recipe"** section. Across all four, the recipe is the same:
+
+1. **Copy the project folder** under a new name.
+2. **Keep `<Format>Source.cs` as-is** — it's dataset-agnostic.
+3. **Rewrite `Schema.cs`** — define your node types (with `[Key]` / `[Property]`) and edge constants.
+4. **Rewrite `<Domain>Ingest.cs`** — three things: a POCO that mirrors a row/document, `RegisterSchemaAsync` listing every node type, and `Ingest` that emits nodes (`graph.TryAdd` / `graph.AddOrUpdate`) and edges (`graph.Link(a, b, fwd, rev)`).
+5. **Tweak `Program.cs`** — connector display name, default data path, and the type passed to the loader.
+
+For composite keys (e.g. `"<University>/<Department>"`) build the string in the ingest method and assign it to a `[Key]` property. To reference a node whose key is built elsewhere in the run, use `Node.FromKey(nameof(Nodes.YourType), keyValue)`.
 
 ## License
 

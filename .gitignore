@@ -53,10 +53,13 @@ CodeCoverage/
 TestResult.xml
 nunit-*.xml
 
-# AI 
-CLAUDE.md 
-AGENT.md 
+# AI
+CLAUDE.md
+AGENT.md
 TODO.md
+
+# Generated SQLite database (recreated from data/seed.sql on first run)
+SqlSample/data/universities.db
 
 # Launch Settings inside projects that are under project/Properties
 **/.launchSettings.json

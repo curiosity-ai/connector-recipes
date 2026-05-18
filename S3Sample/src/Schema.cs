@@ -1,14 +1,11 @@
-using System;
-using Curiosity.Library;
+namespace Curiosity.Library.Recipes;
 
-namespace ConnectorRecipes.SubjectsS3;
-
+// Dataset-specific schema. Subject keys match the CSV sample so the
+// graphs merge on Subject.Name; this connector adds Topics, Books, Authors.
 public static class Schema
 {
     public static class Nodes
     {
-        // Same key as the CSV recipe's Subject node — this recipe extends it
-        // with level + description, and links it to topics and books.
         [Node]
         public class Subject
         {
@@ -41,13 +38,13 @@ public static class Schema
 
     public static class Edges
     {
-        public const string Covers          = nameof(Covers);
-        public const string CoveredIn       = nameof(CoveredIn);
+        public const string Covers         = nameof(Covers);
+        public const string CoveredIn      = nameof(CoveredIn);
 
-        public const string RecommendsBook  = nameof(RecommendsBook);
-        public const string RecommendedFor  = nameof(RecommendedFor);
+        public const string RecommendsBook = nameof(RecommendsBook);
+        public const string RecommendedFor = nameof(RecommendedFor);
 
-        public const string WrittenBy       = nameof(WrittenBy);
-        public const string Wrote           = nameof(Wrote);
+        public const string WrittenBy      = nameof(WrittenBy);
+        public const string Wrote          = nameof(Wrote);
     }
 }

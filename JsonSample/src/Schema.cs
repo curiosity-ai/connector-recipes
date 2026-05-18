@@ -1,14 +1,11 @@
-using System;
-using Curiosity.Library;
+namespace Curiosity.Library.Recipes;
 
-namespace ConnectorRecipes.SkillsJson;
-
+// Dataset-specific schema. Skill keys match the CSV sample so the two
+// graphs merge on Skill.Name; this connector adds properties and edges.
 public static class Schema
 {
     public static class Nodes
     {
-        // Same key as CsvConnectorRecipe's Skill node — this recipe just adds
-        // properties to it. The graph server merges the schemas.
         [Node]
         public class Skill
         {
@@ -41,7 +38,7 @@ public static class Schema
         public const string RequiresSkill  = nameof(RequiresSkill);
         public const string RequiredBy     = nameof(RequiredBy);
 
-        // Symmetric "related to" — same name in both directions.
+        // Symmetric: same name in both directions.
         public const string RelatedToSkill = nameof(RelatedToSkill);
 
         public const string Teaches        = nameof(Teaches);
