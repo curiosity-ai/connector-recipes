@@ -5,7 +5,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
-    <RootNamespace>ConnectorRecipes.Csv</RootNamespace>
+    <RootNamespace>Curiosity.Library.Recipes</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
