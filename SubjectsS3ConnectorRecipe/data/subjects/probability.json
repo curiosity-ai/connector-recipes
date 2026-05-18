@@ -1,0 +1,7 @@
+{
+  "name": "Probability",
+  "level": "Undergraduate",
+  "description": "Random variables, distributions, expectation, and limit theorems.",
+  "topics": ["Random Variables", "Distributions", "Bayes Theorem", "Conditional Probability", "Limit Theorems"],
+  "bookIsbns": ["9780136033134"]
+}

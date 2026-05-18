@@ -1,0 +1,7 @@
+{
+  "name": "Deep Learning",
+  "level": "Graduate",
+  "description": "Neural networks at scale: CNNs, RNNs, Transformers, and modern training methods.",
+  "topics": ["Backpropagation", "CNNs", "RNNs", "Transformers", "Optimization"],
+  "bookIsbns": ["9780262035613"]
+}

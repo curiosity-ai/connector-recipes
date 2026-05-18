@@ -1,0 +1,213 @@
+[
+  {
+    "name": "Python",
+    "category": "Language",
+    "description": "High-level, dynamically typed general-purpose language; the lingua franca of data science and ML.",
+    "popularity": 9.5,
+    "yearIntroduced": 1991,
+    "prerequisites": [],
+    "related": ["R", "JavaScript"],
+    "resources": [
+      { "title": "The Python Tutorial",   "url": "https://docs.python.org/3/tutorial/", "kind": "Tutorial" },
+      { "title": "Fluent Python",         "url": "https://www.oreilly.com/library/view/fluent-python-2nd/9781492056348/", "kind": "Book" }
+    ]
+  },
+  {
+    "name": "R",
+    "category": "Language",
+    "description": "Statistical computing language with first-class support for data frames and visualization.",
+    "popularity": 7.5,
+    "yearIntroduced": 1993,
+    "prerequisites": [],
+    "related": ["Python", "Stan"],
+    "resources": [
+      { "title": "R for Data Science",    "url": "https://r4ds.hadley.nz/", "kind": "Book" }
+    ]
+  },
+  {
+    "name": "JavaScript",
+    "category": "Language",
+    "description": "The language of the web; runs in browsers and on servers via Node.js.",
+    "popularity": 9.0,
+    "yearIntroduced": 1995,
+    "prerequisites": [],
+    "related": ["TypeScript"],
+    "resources": [
+      { "title": "MDN JavaScript Guide",  "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide", "kind": "Tutorial" }
+    ]
+  },
+  {
+    "name": "TypeScript",
+    "category": "Language",
+    "description": "Statically typed superset of JavaScript that compiles to plain JavaScript.",
+    "popularity": 8.5,
+    "yearIntroduced": 2012,
+    "prerequisites": ["JavaScript"],
+    "related": [],
+    "resources": [
+      { "title": "TypeScript Handbook",   "url": "https://www.typescriptlang.org/docs/handbook/intro.html", "kind": "Tutorial" }
+    ]
+  },
+  {
+    "name": "C",
+    "category": "Language",
+    "description": "Low-level systems language; the foundation most operating systems and runtimes are built on.",
+    "popularity": 8.0,
+    "yearIntroduced": 1972,
+    "prerequisites": [],
+    "related": ["Rust", "Go"],
+    "resources": [
+      { "title": "K&R: The C Programming Language", "url": "https://www.cs.princeton.edu/~bwk/cbook.html", "kind": "Book" }
+    ]
+  },
+  {
+    "name": "Rust",
+    "category": "Language",
+    "description": "Memory-safe systems language with ownership-based concurrency.",
+    "popularity": 8.5,
+    "yearIntroduced": 2010,
+    "prerequisites": ["C"],
+    "related": ["Go"],
+    "resources": [
+      { "title": "The Rust Book",         "url": "https://doc.rust-lang.org/book/", "kind": "Book" }
+    ]
+  },
+  {
+    "name": "Go",
+    "category": "Language",
+    "description": "Compiled, statically typed language designed at Google for concurrent server software.",
+    "popularity": 8.0,
+    "yearIntroduced": 2009,
+    "prerequisites": ["C"],
+    "related": ["Rust"],
+    "resources": [
+      { "title": "A Tour of Go",          "url": "https://go.dev/tour/", "kind": "Tutorial" }
+    ]
+  },
+  {
+    "name": "MATLAB",
+    "category": "Language",
+    "description": "Numeric-computing environment popular in engineering coursework.",
+    "popularity": 7.0,
+    "yearIntroduced": 1984,
+    "prerequisites": [],
+    "related": ["Python"],
+    "resources": []
+  },
+  {
+    "name": "Verilog",
+    "category": "Language",
+    "description": "Hardware description language for digital logic and FPGA/ASIC design.",
+    "popularity": 6.5,
+    "yearIntroduced": 1984,
+    "prerequisites": [],
+    "related": [],
+    "resources": []
+  },
+  {
+    "name": "SQL",
+    "category": "Language",
+    "description": "Declarative language for querying and manipulating relational databases.",
+    "popularity": 9.0,
+    "yearIntroduced": 1974,
+    "prerequisites": [],
+    "related": ["Spark"],
+    "resources": [
+      { "title": "Use The Index, Luke!",  "url": "https://use-the-index-luke.com/", "kind": "Tutorial" }
+    ]
+  },
+  {
+    "name": "Stan",
+    "category": "Language",
+    "description": "Probabilistic programming language for Bayesian statistical modeling.",
+    "popularity": 6.5,
+    "yearIntroduced": 2012,
+    "prerequisites": ["R", "Python"],
+    "related": [],
+    "resources": [
+      { "title": "Stan User's Guide",     "url": "https://mc-stan.org/docs/stan-users-guide/", "kind": "Tutorial" }
+    ]
+  },
+  {
+    "name": "TensorFlow",
+    "category": "Library",
+    "description": "End-to-end deep-learning framework from Google.",
+    "popularity": 8.5,
+    "yearIntroduced": 2015,
+    "prerequisites": ["Python"],
+    "related": ["PyTorch", "JAX"],
+    "resources": [
+      { "title": "TensorFlow Tutorials",  "url": "https://www.tensorflow.org/tutorials", "kind": "Tutorial" }
+    ]
+  },
+  {
+    "name": "PyTorch",
+    "category": "Library",
+    "description": "Deep-learning framework with eager execution; the dominant choice for research.",
+    "popularity": 9.0,
+    "yearIntroduced": 2016,
+    "prerequisites": ["Python"],
+    "related": ["TensorFlow", "JAX"],
+    "resources": [
+      { "title": "PyTorch Tutorials",     "url": "https://pytorch.org/tutorials/", "kind": "Tutorial" }
+    ]
+  },
+  {
+    "name": "JAX",
+    "category": "Library",
+    "description": "Composable transformations of NumPy programs (autodiff, JIT, vectorization).",
+    "popularity": 7.5,
+    "yearIntroduced": 2018,
+    "prerequisites": ["Python"],
+    "related": ["PyTorch", "TensorFlow"],
+    "resources": [
+      { "title": "JAX Quickstart",        "url": "https://jax.readthedocs.io/en/latest/quickstart.html", "kind": "Tutorial" }
+    ]
+  },
+  {
+    "name": "OpenCV",
+    "category": "Library",
+    "description": "Computer-vision library with thousands of optimized algorithms for image processing.",
+    "popularity": 8.0,
+    "yearIntroduced": 2000,
+    "prerequisites": ["Python", "C"],
+    "related": ["PyTorch"],
+    "resources": []
+  },
+  {
+    "name": "Spark",
+    "category": "Framework",
+    "description": "Distributed compute engine for large-scale data processing.",
+    "popularity": 8.0,
+    "yearIntroduced": 2014,
+    "prerequisites": ["SQL"],
+    "related": [],
+    "resources": [
+      { "title": "Spark: The Definitive Guide", "url": "https://www.oreilly.com/library/view/spark-the-definitive/9781491912201/", "kind": "Book" }
+    ]
+  },
+  {
+    "name": "Git",
+    "category": "Tool",
+    "description": "Distributed version control system; the de facto standard for source code.",
+    "popularity": 9.5,
+    "yearIntroduced": 2005,
+    "prerequisites": [],
+    "related": ["Linux"],
+    "resources": [
+      { "title": "Pro Git",               "url": "https://git-scm.com/book/en/v2", "kind": "Book" }
+    ]
+  },
+  {
+    "name": "Linux",
+    "category": "Tool",
+    "description": "Family of Unix-like operating systems; backbone of servers, cloud, and embedded systems.",
+    "popularity": 9.0,
+    "yearIntroduced": 1991,
+    "prerequisites": [],
+    "related": ["Git"],
+    "resources": [
+      { "title": "The Linux Command Line", "url": "https://linuxcommand.org/tlcl.php", "kind": "Book" }
+    ]
+  }
+]

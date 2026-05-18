@@ -1,0 +1,7 @@
+{
+  "name": "ML Foundations",
+  "level": "Graduate",
+  "description": "Core concepts behind supervised, unsupervised, and probabilistic learning.",
+  "topics": ["Supervised Learning", "Unsupervised Learning", "Optimization", "Regularization", "Generalization"],
+  "bookIsbns": ["9780387310732", "9780262018029"]
+}
