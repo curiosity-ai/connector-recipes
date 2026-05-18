@@ -1,6 +1,6 @@
 ---
 name: curiosity-data-connector
-description: Use when building or editing a Curiosity data connector — a .NET console app that reads a source format (CSV, JSON, S3, REST, SQL, …) and ingests it into a Curiosity knowledge-graph workspace via the `Curiosity.Library` SDK. TRIGGER when a .cs file uses `using Curiosity.Library;` or `Graph.Connect(...)`; csproj has `PackageReference Include="Curiosity.Library"`; classes are decorated with `[Node]` / `[Key]` / `[Property]` / `[Timestamp]`; code calls `graph.TryAdd`, `graph.Link`, `graph.AddOrUpdate`, `graph.CreateNodeSchemaAsync`, `graph.CommitPendingAsync`, or builds queries via `Q().StartAt(...)` / `q.StartAt(...)`; project name or folder contains "DataConnector" / "data-connector" / "ConnectorRecipe"; user asks about ingesting CSV/JSON/etc into Curiosity, defining graph schemas, edges, or running a connector against a workspace. SKIP for Tesserae frontends (use the tesserae-frontend skill instead), the Mosaik server source itself, scrapers that don't talk to the graph, and unrelated .NET projects.
+description: Use when building or editing a Curiosity data connector — a .NET console app that reads a source format (CSV, JSON, S3, REST, SQL, …) and ingests it into a Curiosity knowledge-graph workspace via the `Curiosity.Library` SDK. TRIGGER when a .cs file uses `using Curiosity.Library;` or `Graph.Connect(...)`; csproj has `PackageReference Include="Curiosity.Library"`; classes are decorated with `[Node]` / `[Key]` / `[Property]` / `[Timestamp]`; code calls `graph.TryAdd`, `graph.Link`, `graph.AddOrUpdate`, `graph.CreateNodeSchemaAsync`, `graph.CommitPendingAsync`, or builds queries via `Q().StartAt(...)` / `q.StartAt(...)`; project name or folder contains "DataConnector" / "data-connector" / "ConnectorRecipe"; user asks about ingesting CSV/JSON/etc into Curiosity, defining graph schemas, edges, or running a connector against a workspace. SKIP for unrelated .NET projects and for scrapers that don't talk to the graph.
 ---
 
 # Building a Curiosity Data Connector
@@ -13,7 +13,7 @@ A data connector is a small .NET 10 console app that:
 4. Commits pending operations (`graph.CommitPendingAsync()`).
 5. Optionally runs a few `Q()` queries to verify counts / shape.
 
-The reference application is **Mosaik**, and the `Curiosity.Library` SDK is the public API surface you'll be calling. The recipes in this repository (`CsvConnectorRecipe`, `SkillsJsonConnectorRecipe`, `SubjectsS3ConnectorRecipe`, `UniversitiesSqlConnectorRecipe`) are the canonical examples — prefer their conventions over inventing new ones.
+The `Curiosity.Library` SDK is the public API surface you'll be calling. The recipes in this repository (`CsvConnectorRecipe`, `SkillsJsonConnectorRecipe`, `SubjectsS3ConnectorRecipe`, `UniversitiesSqlConnectorRecipe`) are the canonical examples — prefer their conventions over inventing new ones.
 
 ## Hard constraints
 
@@ -248,10 +248,10 @@ graph.Link(caseNode, statusNode, Edges.HasStatus, Edges.StatusOf);
 ### Aliases (for search / NLP)
 
 ```csharp
-// Make a node also findable by alternate names. Mosaik.Core.Language.Any
-// applies the alias in every language.
-graph.AddAlias(deviceNode, Mosaik.Core.Language.Any, "iPhone 12", ignoreCase: false);
-graph.AddAlias(deviceNode, Mosaik.Core.Language.Any, "iPhone.12", ignoreCase: false);
+// Make a node also findable by alternate names. Use Language.Any to
+// apply the alias in every language.
+graph.AddAlias(deviceNode, Language.Any, "iPhone 12", ignoreCase: false);
+graph.AddAlias(deviceNode, Language.Any, "iPhone.12", ignoreCase: false);
 ```
 
 ### Committing
