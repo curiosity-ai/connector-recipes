@@ -1,6 +1,6 @@
 ---
 name: curiosity-data-connector
-description: Use when building or editing a Curiosity data connector — a .NET console app that reads a source format (CSV, JSON, S3, REST, SQL, …) and ingests it into a Curiosity knowledge-graph workspace via the `Curiosity.Library` SDK. TRIGGER when a .cs file uses `using Curiosity.Library;` or `Graph.Connect(...)`; csproj has `PackageReference Include="Curiosity.Library"`; classes are decorated with `[Node]` / `[Key]` / `[Property]` / `[Timestamp]`; code calls `graph.TryAdd`, `graph.Link`, `graph.AddOrUpdate`, `graph.CreateNodeSchemaAsync`, `graph.CommitPendingAsync`, or builds queries via `Q().StartAt(...)` / `q.StartAt(...)`; project name or folder contains "DataConnector" / "data-connector" / "ConnectorRecipe"; user asks about ingesting CSV/JSON/etc into Curiosity, defining graph schemas, edges, or running a connector against a workspace. SKIP for Tesserae frontends (use the tesserae-frontend skill instead), the Mosaik server source itself, scrapers that don't talk to the graph, and unrelated .NET projects.
+description: Use when building or editing a Curiosity data connector — a .NET console app that reads a source format (CSV, JSON, S3, REST, SQL, …) and ingests it into a Curiosity knowledge-graph workspace via the `Curiosity.Library` SDK. TRIGGER when a .cs file uses `using Curiosity.Library;` or `Graph.Connect(...)`; csproj has `PackageReference Include="Curiosity.Library"`; classes are decorated with `[Node]` / `[Key]` / `[Property]` / `[Timestamp]`; code calls `graph.TryAdd`, `graph.Link`, `graph.AddOrUpdate`, `graph.CreateNodeSchemaAsync`, `graph.CommitPendingAsync`, or builds queries via `Q().StartAt(...)` / `q.StartAt(...)`; project name or folder contains "DataConnector" / "data-connector" / "ConnectorRecipe"; user asks about ingesting CSV/JSON/etc into Curiosity, defining graph schemas, edges, or running a connector against a workspace. SKIP for unrelated .NET projects and for scrapers that don't talk to the graph.
 ---
 
 # Building a Curiosity Data Connector
@@ -13,7 +13,7 @@ A data connector is a small .NET 10 console app that:
 4. Commits pending operations (`graph.CommitPendingAsync()`).
 5. Optionally runs a few `Q()` queries to verify counts / shape.
 
-The reference application is **Mosaik** (`/Users/omar/Soft/Curiosity/mosaik`). The minimal canonical example is `/Users/omar/Soft/Curiosity/technical-support-demo/technical-support/data-connector/`. A richer real-world example is `/Users/omar/Soft/Curiosity/nuclear-knowledge/nuclear-knowledge/data-connector/Asnr/`. Prefer their conventions over inventing new ones.
+The `Curiosity.Library` SDK is the public API surface you'll be calling. The recipes in this repository (`CsvConnectorRecipe`, `SkillsJsonConnectorRecipe`, `SubjectsS3ConnectorRecipe`, `UniversitiesSqlConnectorRecipe`) are the canonical examples — prefer their conventions over inventing new ones.
 
 ## Hard constraints
 
@@ -216,7 +216,7 @@ static async Task PrintCountsAsync(Graph graph)
 
 ## 4. Graph API — the moves you'll actually use
 
-All operations go through the `Graph` returned by `Graph.Connect(...)`. The whole API is in `/Users/omar/Soft/Curiosity/mosaik/Library/Curiosity.Library/src/Graph.Public.cs`. The methods that come up in 95% of recipes:
+All operations go through the `Graph` returned by `Graph.Connect(...)`. The full API surface lives in the `Curiosity.Library` package (`Graph.Public.cs`). The methods that come up in 95% of recipes:
 
 ### Adding nodes
 
@@ -248,10 +248,10 @@ graph.Link(caseNode, statusNode, Edges.HasStatus, Edges.StatusOf);
 ### Aliases (for search / NLP)
 
 ```csharp
-// Make a node also findable by alternate names. Mosaik.Core.Language.Any
-// applies the alias in every language.
-graph.AddAlias(deviceNode, Mosaik.Core.Language.Any, "iPhone 12", ignoreCase: false);
-graph.AddAlias(deviceNode, Mosaik.Core.Language.Any, "iPhone.12", ignoreCase: false);
+// Make a node also findable by alternate names. Use Language.Any to
+// apply the alias in every language.
+graph.AddAlias(deviceNode, Language.Any, "iPhone 12", ignoreCase: false);
+graph.AddAlias(deviceNode, Language.Any, "iPhone.12", ignoreCase: false);
 ```
 
 ### Committing
@@ -337,7 +337,7 @@ foreach (var manufacturerNode in Q().StartAt(N.Manufacturer.Type).AsEnumerable()
 }
 ```
 
-**Common chain segments** (full reference: `/Users/omar/Soft/Curiosity/mosaik/Mosaik/Graph/src/Queries/`):
+**Common chain segments** (full reference: the query builder in `Curiosity.Library`):
 
 | Method | Purpose |
 |---|---|
@@ -446,20 +446,17 @@ Use `HttpClient` (single static instance) + `System.Text.Json`. Honor `Retry-Aft
 
 ## 10. Reference
 
-- **Canonical minimal recipe (read first):** `/Users/omar/Soft/Curiosity/technical-support-demo/technical-support/data-connector/`
-  - `INSTRUCTIONS.md` — the walkthrough, including sample queries.
+- **Canonical minimal recipe (read first):** `CsvConnectorRecipe/`
+  - `README.md` — the walkthrough, including sample queries.
   - `src/Schema.cs` — single-file schema pattern.
-  - `src/App.cs` — top-level program with parallel-friendly ingestion.
-- **Real-world recipe (more advanced):** `/Users/omar/Soft/Curiosity/nuclear-knowledge/nuclear-knowledge/data-connector/Asnr/`
-  - `src/Schema.cs` + `src/nodes/*.cs` — partial-class node split.
-  - `src/Program.cs` — `FindFirstExisting`, smoke mode, geo-only mode, `PrintCountsAsync`.
-  - `src/ingestion/` — CSV loader, PDF extraction, parser layout.
-- **`Curiosity.Library` source (the SDK you call):** `/Users/omar/Soft/Curiosity/mosaik/Library/Curiosity.Library/src/`
-  - `Graph.Public.cs` — `Graph.Connect`, `TryAdd`, `Link`, `AddAlias`, `CommitPendingAsync`, `CreateNodeSchemaAsync`.
-  - `Attributes/` — `[Node]`, `[Key]`, `[Property]`, `[Timestamp]` definitions.
-- **Query language source:** `/Users/omar/Soft/Curiosity/mosaik/Mosaik/Graph/src/Queries/`
-  - `IQuery.cs`, `Query.cs`, `QueryInit.cs` — chainable methods on the query builder.
-  - `TransactionQuery.cs` — `.Tx().AddUniqueEdgeTo(...).CommitAsync()`.
-  - `QueryEnumerableExtensions.cs` — `.AsEnumerable()` and friends for Shell-side `Linq`.
+  - `src/Program.cs` — top-level program with parallel-friendly ingestion.
+- **Other recipes in this repo:**
+  - `SkillsJsonConnectorRecipe/` — JSON ingestion.
+  - `SubjectsS3ConnectorRecipe/` — reading from S3.
+  - `UniversitiesSqlConnectorRecipe/` — SQL source.
+- **`Curiosity.Library` (the SDK you call):** consumed via the `Curiosity.Library` NuGet package.
+  - `Graph.Connect`, `TryAdd`, `Link`, `AddAlias`, `CommitPendingAsync`, `CreateNodeSchemaAsync` are the main entry points.
+  - `[Node]`, `[Key]`, `[Property]`, `[Timestamp]` are the schema attributes.
+  - The query builder (`Q()` / `q.StartAt(...)`) exposes `.Out`, `.In`, `.Where`, `.Emit`, `.EmitCount`, `.EmitNeighborsSummary`, `.Tx().AddUniqueEdgeTo(...).CommitAsync()`, etc.
 
-When unsure how to do something: **grep the reference recipes first**, then `Curiosity.Library/src/`. Almost every pattern you need has already been used.
+When unsure how to do something: **read the recipes in this repo first**, then check the IntelliSense / API docs for `Curiosity.Library`. Almost every pattern you need has already been used.
