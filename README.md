@@ -57,6 +57,7 @@ A connector is **not** a streaming pipeline replacement. It's an ingestion job �
 | Sample | Source format | What it owns in the graph |
 |---|---|---|
 | [`CsvSample`](./CsvSample/) | CSV | Student-centric backbone |
+| [`CsvCachedSample`](./CsvCachedSample/) | CSV + `HashCache` | Same as `CsvSample`, with on-disk row fingerprinting to skip unchanged rows on re-runs |
 | [`JsonSample`](./JsonSample/) | JSON | Skill taxonomy + learning resources |
 | [`S3Sample`](./S3Sample/) | S3 (local fallback) | Subjects, topics, books, authors |
 | [`SqlSample`](./SqlSample/) | SQLite | Universities, departments, programs, faculty |
@@ -127,6 +128,7 @@ export CURIOSITY_API_TOKEN=<token from "Manage → API integrations">
 
 # Run any subset, in any order — they merge automatically on shared keys.
 dotnet run --project CsvSample
+dotnet run --project CsvCachedSample       # same as CsvSample, but skips unchanged rows on re-runs
 dotnet run --project JsonSample
 dotnet run --project S3Sample
 dotnet run --project SqlSample
