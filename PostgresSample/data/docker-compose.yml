@@ -1,0 +1,27 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: recipes-postgres
+    environment:
+      POSTGRES_USER: recipes
+      POSTGRES_PASSWORD: recipes
+      POSTGRES_DB: grants_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql:ro
+
+  # Uncomment to use MySQL instead. Both drivers ship with the recipe; the
+  # connector picks the right one from the URL scheme (postgres:// vs mysql://).
+  # mysql:
+  #   image: mysql:8.4
+  #   container_name: recipes-mysql
+  #   environment:
+  #     MYSQL_DATABASE: grants_db
+  #     MYSQL_USER: recipes
+  #     MYSQL_PASSWORD: recipes
+  #     MYSQL_ROOT_PASSWORD: root
+  #   ports:
+  #     - "3306:3306"
+  #   volumes:
+  #     - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql:ro

@@ -1,0 +1,99 @@
+{
+  "documentNumber": "MAN-PMP-001",
+  "title": "Sulzer AHLSTAR A22-50 Centrifugal Pump \u2014 Maintenance Manual",
+  "revision": "Rev. C",
+  "publishedAt": "2024-03-12T00:00:00Z",
+  "equipment": {
+    "id": "EQ-PMP-A22-50-01",
+    "model": "AHLSTAR A22-50",
+    "category": "Centrifugal Pump",
+    "serialNumber": "AH-2023-44129",
+    "plant": "North Refinery Unit 4"
+  },
+  "manufacturer": {
+    "name": "Sulzer",
+    "country": "Switzerland"
+  },
+  "authors": [
+    {
+      "employeeId": "T-1001",
+      "name": "Jordan Reyes",
+      "trade": "Rotating Equipment"
+    },
+    {
+      "employeeId": "T-1208",
+      "name": "Aisha Kone",
+      "trade": "Reliability Engineering"
+    }
+  ],
+  "hazards": [
+    "Stored mechanical energy",
+    "Hot surfaces (process side)",
+    "Pinch points"
+  ],
+  "procedures": [
+    {
+      "id": "PRC-PMP-001-A",
+      "name": "Replace mechanical shaft seal",
+      "category": "Corrective Maintenance",
+      "severity": "Medium",
+      "page": 2,
+      "heading": "Section 4 \u2014 Seal Replacement",
+      "performedBy": "T-1001",
+      "parts": [
+        {
+          "partNumber": "SEAL-MS-25-A",
+          "name": "Mechanical Shaft Seal 25mm Type A",
+          "category": "Seals"
+        },
+        {
+          "partNumber": "GSKT-ANSI-150",
+          "name": "ANSI 150 Spiral-Wound Gasket DN50",
+          "category": "Gaskets"
+        },
+        {
+          "partNumber": "BLT-M16-HEX",
+          "name": "Hex Bolt M16 x 60 Grade 8.8",
+          "category": "Fasteners"
+        }
+      ]
+    },
+    {
+      "id": "PRC-PMP-001-B",
+      "name": "Quarterly bearing lubrication",
+      "category": "Preventive Maintenance",
+      "severity": "Low",
+      "page": 3,
+      "heading": "Section 5 \u2014 Lubrication Schedule",
+      "performedBy": "T-1001",
+      "parts": [
+        {
+          "partNumber": "BRG-6206-2RS",
+          "name": "Sealed Deep-Groove Ball Bearing 30mm",
+          "category": "Bearings"
+        },
+        {
+          "partNumber": "GRSE-LITH-EP2",
+          "name": "Lithium EP2 Grease 400g Cartridge",
+          "category": "Lubricants"
+        }
+      ]
+    },
+    {
+      "id": "PRC-PMP-001-C",
+      "name": "Impeller balance and run-out check",
+      "category": "Reliability Inspection",
+      "severity": "Medium",
+      "page": 4,
+      "heading": "Section 6 \u2014 Impeller Inspection",
+      "performedBy": "T-1208",
+      "parts": [
+        {
+          "partNumber": "IMPLR-CAST-200",
+          "name": "Cast Stainless Impeller 200mm",
+          "category": "Wet End"
+        }
+      ]
+    }
+  ]
+}

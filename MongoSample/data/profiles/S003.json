@@ -1,0 +1,44 @@
+{
+  "studentId": "S003",
+  "bio": "Distributed-systems doctoral candidate working on consensus and storage engines.",
+  "githubUrl": "https://github.com/chiara-rossi",
+  "linkedin": "https://linkedin.com/in/chiara-rossi",
+  "skills": ["Rust", "Go", "Distributed Systems", "Algorithms"],
+  "interests": ["Storage Engines", "Consensus Protocols"],
+  "internships": [
+    {
+      "id": "S003/Google/2022",
+      "company": "Google",
+      "industry": "Technology",
+      "website": "https://google.com",
+      "role": "Software Engineering Intern",
+      "startYear": 2022,
+      "endYear": 2022
+    },
+    {
+      "id": "S003/Cloudflare/2023",
+      "company": "Cloudflare",
+      "industry": "Networking",
+      "website": "https://cloudflare.com",
+      "role": "Edge Systems Intern",
+      "startYear": 2023,
+      "endYear": 2023
+    }
+  ],
+  "projects": [
+    {
+      "id": "S003/raft-rs",
+      "name": "Embeddable Raft library",
+      "description": "A Rust crate for embedding the Raft consensus protocol into stateful services.",
+      "url": "https://github.com/chiara-rossi/raft-rs",
+      "skills": ["Rust", "Distributed Systems"]
+    },
+    {
+      "id": "S003/lsm-kv",
+      "name": "Toy LSM key-value store",
+      "description": "Pedagogical LSM-tree key-value store with compaction and bloom filters.",
+      "url": "https://github.com/chiara-rossi/lsm-kv",
+      "skills": ["Go", "Storage Engines"]
+    }
+  ]
+}

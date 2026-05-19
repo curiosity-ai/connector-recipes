@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>UC Berkeley News</title>
+    <link>https://news.berkeley.edu/</link>
+    <description>News from UC Berkeley.</description>
+    <language>en-us</language>
+    <item>
+      <title>Berkeley economists publish landmark study on AI labor-market effects</title>
+      <link>https://news.berkeley.edu/2024/11/18/ai-labor-market-effects</link>
+      <guid isPermaLink="false">berk-news-2024-11-18-ai-labor</guid>
+      <pubDate>Mon, 18 Nov 2024 09:00:00 GMT</pubDate>
+      <author>news@berkeley.edu (Greta Hartl)</author>
+      <category>Research</category>
+      <category>Economics</category>
+      <description>The five-year longitudinal study tracks wage outcomes in industries with high AI exposure.</description>
+    </item>
+    <item>
+      <title>Statistics department welcomes Mei Lin as visiting professor</title>
+      <link>https://news.berkeley.edu/2024/09-30/lin-visiting-prof</link>
+      <guid isPermaLink="false">berk-news-2024-09-30-mei-lin</guid>
+      <pubDate>Mon, 30 Sep 2024 08:15:00 GMT</pubDate>
+      <author>news@berkeley.edu (Greta Hartl)</author>
+      <category>People</category>
+      <category>Statistics</category>
+      <description>Mei Lin joins the Statistics department for the 2024-2025 academic year.</description>
+    </item>
+  </channel>
+</rss>

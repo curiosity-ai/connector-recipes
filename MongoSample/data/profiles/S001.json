@@ -1,0 +1,28 @@
+{
+  "studentId": "S001",
+  "bio": "Final-year undergraduate interested in foundation models and applied ML.",
+  "githubUrl": "https://github.com/alice-chen",
+  "linkedin": "https://linkedin.com/in/alice-chen",
+  "skills": ["Python", "TensorFlow", "PyTorch", "Docker"],
+  "interests": ["NLP", "Robotics", "Open Source"],
+  "internships": [
+    {
+      "id": "S001/OpenAI/2024",
+      "company": "OpenAI",
+      "industry": "AI Research",
+      "website": "https://openai.com",
+      "role": "Research Intern",
+      "startYear": 2024,
+      "endYear": 2024
+    }
+  ],
+  "projects": [
+    {
+      "id": "S001/notebook-lm",
+      "name": "Notebook-LM clone",
+      "description": "Open-source replica of an LLM-powered note-taking app.",
+      "url": "https://github.com/alice-chen/notebook-lm",
+      "skills": ["Python", "PyTorch", "Transformers"]
+    }
+  ]
+}

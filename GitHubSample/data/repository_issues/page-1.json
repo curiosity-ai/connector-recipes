@@ -1,0 +1,41 @@
+{
+  "data": {
+    "repository": {
+      "issues": {
+        "pageInfo": { "hasNextPage": false, "endCursor": null },
+        "nodes": [
+          {
+            "id": "I_kwDOAAA001",
+            "number": 142,
+            "title": "Improve large-CSV ingestion memory profile",
+            "state": "OPEN",
+            "url": "https://github.com/curiosity-ai/catalyst/issues/142",
+            "createdAt": "2024-09-12T09:13:00Z",
+            "author": { "login": "chiara-rossi" },
+            "labels": { "nodes": [ { "name": "performance" }, { "name": "ingestion" } ] }
+          },
+          {
+            "id": "I_kwDOAAA002",
+            "number": 158,
+            "title": "Query language: support arithmetic over emitted fields",
+            "state": "CLOSED",
+            "url": "https://github.com/curiosity-ai/catalyst/issues/158",
+            "createdAt": "2024-10-04T17:40:00Z",
+            "author": { "login": "alice-chen" },
+            "labels": { "nodes": [ { "name": "query-language" } ] }
+          },
+          {
+            "id": "I_kwDOAAA003",
+            "number": 171,
+            "title": "Add docs for the watermark recipe pattern",
+            "state": "OPEN",
+            "url": "https://github.com/curiosity-ai/connector-recipes/issues/171",
+            "createdAt": "2024-11-20T11:05:00Z",
+            "author": { "login": "bilal-ahmed" },
+            "labels": { "nodes": [ { "name": "docs" }, { "name": "good-first-issue" } ] }
+          }
+        ]
+      }
+    }
+  }
+}

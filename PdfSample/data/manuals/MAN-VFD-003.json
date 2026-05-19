@@ -1,0 +1,68 @@
+{
+  "documentNumber": "MAN-VFD-003",
+  "title": "ABB ACS580 VFD 75kW \u2014 Installation and Repair Guide",
+  "revision": "Rev. A",
+  "publishedAt": "2024-01-22T00:00:00Z",
+  "equipment": {
+    "id": "EQ-VFD-ACS580-04",
+    "model": "ACS580-01-145A-4",
+    "category": "Variable Frequency Drive",
+    "serialNumber": "ABB-580-77321",
+    "plant": "North Refinery Unit 4"
+  },
+  "manufacturer": {
+    "name": "ABB",
+    "country": "Switzerland"
+  },
+  "authors": [
+    {
+      "employeeId": "T-1042",
+      "name": "Priya Subbu",
+      "trade": "Electrical"
+    },
+    {
+      "employeeId": "T-1290",
+      "name": "Henrik Sand",
+      "trade": "Instrumentation"
+    }
+  ],
+  "hazards": [
+    "Capacitor discharge",
+    "Arc flash",
+    "DC bus residual voltage"
+  ],
+  "procedures": [
+    {
+      "id": "PRC-VFD-003-A",
+      "name": "Replace input fuses after fault trip",
+      "category": "Corrective Maintenance",
+      "severity": "High",
+      "page": 2,
+      "heading": "Section 3 \u2014 Fuse Replacement",
+      "performedBy": "T-1042",
+      "parts": [
+        {
+          "partNumber": "VFD-FUSE-32A",
+          "name": "VFD Input Fuse Class J 32A",
+          "category": "Electrical"
+        }
+      ]
+    },
+    {
+      "id": "PRC-VFD-003-B",
+      "name": "Calibrate output current measurement",
+      "category": "Predictive Maintenance",
+      "severity": "Low",
+      "page": 3,
+      "heading": "Section 4 \u2014 Calibration",
+      "performedBy": "T-1290",
+      "parts": [
+        {
+          "partNumber": "PR-GAUGE-10BAR",
+          "name": "Bourdon Pressure Gauge 0-10 bar",
+          "category": "Instrumentation"
+        }
+      ]
+    }
+  ]
+}

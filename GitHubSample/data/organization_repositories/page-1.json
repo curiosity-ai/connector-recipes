@@ -1,0 +1,47 @@
+{
+  "data": {
+    "organization": {
+      "repositories": {
+        "pageInfo": { "hasNextPage": false, "endCursor": null },
+        "nodes": [
+          {
+            "nameWithOwner": "curiosity-ai/catalyst",
+            "description": "Industrial-strength NLP framework for .NET.",
+            "url": "https://github.com/curiosity-ai/catalyst",
+            "primaryLanguage": { "name": "C#" },
+            "stargazerCount": 745,
+            "forkCount": 81,
+            "isArchived": false,
+            "createdAt": "2019-08-29T12:00:00Z",
+            "owner": { "login": "curiosity-ai" },
+            "repositoryTopics": {
+              "nodes": [
+                { "topic": { "name": "nlp" } },
+                { "topic": { "name": "machine-learning" } },
+                { "topic": { "name": "csharp" } }
+              ]
+            }
+          },
+          {
+            "nameWithOwner": "curiosity-ai/connector-recipes",
+            "description": "Self-contained recipes for ingesting common source formats into Curiosity.",
+            "url": "https://github.com/curiosity-ai/connector-recipes",
+            "primaryLanguage": { "name": "C#" },
+            "stargazerCount": 19,
+            "forkCount": 4,
+            "isArchived": false,
+            "createdAt": "2024-05-01T08:00:00Z",
+            "owner": { "login": "curiosity-ai" },
+            "repositoryTopics": {
+              "nodes": [
+                { "topic": { "name": "csharp" } },
+                { "topic": { "name": "data-engineering" } },
+                { "topic": { "name": "knowledge-graph" } }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

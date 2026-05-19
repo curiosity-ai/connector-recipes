@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Carnegie Mellon News</title>
+    <link>https://www.cmu.edu/news/</link>
+    <description>News from Carnegie Mellon University.</description>
+    <language>en-us</language>
+    <item>
+      <title>SCS hosts inaugural foundation-model interpretability symposium</title>
+      <link>https://www.cmu.edu/news/2024-11-12-foundation-model-interpretability</link>
+      <guid isPermaLink="false">cmu-news-2024-11-12-interpret</guid>
+      <pubDate>Tue, 12 Nov 2024 11:00:00 GMT</pubDate>
+      <author>news@cmu.edu (Hugo Ortega)</author>
+      <category>Research</category>
+      <category>Machine Learning</category>
+      <description>A two-day symposium gathered 200 researchers to compare interpretability techniques across labs.</description>
+    </item>
+    <item>
+      <title>Robotics Institute opens new center for warehouse automation</title>
+      <link>https://www.cmu.edu/news/2024-10-29-warehouse-robotics-center</link>
+      <guid isPermaLink="false">cmu-news-2024-10-29-robotics</guid>
+      <pubDate>Tue, 29 Oct 2024 15:30:00 GMT</pubDate>
+      <author>news@cmu.edu (Paula Wilson)</author>
+      <category>Research</category>
+      <category>Robotics</category>
+      <description>The center will host joint projects with logistics companies focused on dense-storage manipulation.</description>
+    </item>
+  </channel>
+</rss>

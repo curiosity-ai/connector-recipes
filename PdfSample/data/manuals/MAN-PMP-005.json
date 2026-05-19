@@ -1,0 +1,73 @@
+{
+  "documentNumber": "MAN-PMP-005",
+  "title": "Grundfos CR45-3 Vertical Multistage Pump \u2014 Repair Manual",
+  "revision": "Rev. A",
+  "publishedAt": "2024-07-04T00:00:00Z",
+  "equipment": {
+    "id": "EQ-PMP-CR45-01",
+    "model": "CR45-3-2 A-F-A-E-HQQE",
+    "category": "Vertical Multistage Pump",
+    "serialNumber": "GF-CR45-30022",
+    "plant": "South Plant Utilities"
+  },
+  "manufacturer": {
+    "name": "Grundfos",
+    "country": "Denmark"
+  },
+  "authors": [
+    {
+      "employeeId": "T-1001",
+      "name": "Jordan Reyes",
+      "trade": "Rotating Equipment"
+    },
+    {
+      "employeeId": "T-1208",
+      "name": "Aisha Kone",
+      "trade": "Reliability Engineering"
+    }
+  ],
+  "hazards": [
+    "High-pressure water",
+    "Pinch points",
+    "Suspended load during lift"
+  ],
+  "procedures": [
+    {
+      "id": "PRC-PMP-005-A",
+      "name": "Replace stage chamber gaskets",
+      "category": "Corrective Maintenance",
+      "severity": "Medium",
+      "page": 2,
+      "heading": "Section 3 \u2014 Stage Disassembly",
+      "performedBy": "T-1001",
+      "parts": [
+        {
+          "partNumber": "GSKT-ANSI-150",
+          "name": "ANSI 150 Spiral-Wound Gasket DN50",
+          "category": "Gaskets"
+        },
+        {
+          "partNumber": "SEAL-MS-25-A",
+          "name": "Mechanical Shaft Seal 25mm Type A",
+          "category": "Seals"
+        }
+      ]
+    },
+    {
+      "id": "PRC-PMP-005-B",
+      "name": "V-belt drive replacement",
+      "category": "Preventive Maintenance",
+      "severity": "Low",
+      "page": 3,
+      "heading": "Section 4 \u2014 Belt Service",
+      "performedBy": "T-1208",
+      "parts": [
+        {
+          "partNumber": "BELT-V-A56",
+          "name": "Classic V-Belt A56",
+          "category": "Drives"
+        }
+      ]
+    }
+  ]
+}

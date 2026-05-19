@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>MIT News</title>
+    <link>https://news.mit.edu/</link>
+    <description>News from the Massachusetts Institute of Technology.</description>
+    <language>en-us</language>
+    <item>
+      <title>CSAIL researchers unveil a more efficient training method for large language models</title>
+      <link>https://news.mit.edu/2024/csail-llm-training-2024-11-08</link>
+      <guid isPermaLink="false">mit-news-2024-11-08-csail-llm</guid>
+      <pubDate>Fri, 08 Nov 2024 12:00:00 GMT</pubDate>
+      <author>news@mit.edu (Terrence Ng)</author>
+      <category>Research</category>
+      <category>Artificial Intelligence</category>
+      <description>A team at CSAIL shows how reusing activations across layers can cut training cost by 30 percent.</description>
+    </item>
+    <item>
+      <title>MIT.nano announces new shared-facility hours for graduate students</title>
+      <link>https://news.mit.edu/2024/nano-hours-2024-10-22</link>
+      <guid isPermaLink="false">mit-news-2024-10-22-nano-hours</guid>
+      <pubDate>Tue, 22 Oct 2024 09:30:00 GMT</pubDate>
+      <author>news@mit.edu (Renee Fields)</author>
+      <category>Campus Life</category>
+      <description>Starting in November, MIT.nano will be open until 10pm on weekdays to ease equipment scheduling.</description>
+    </item>
+    <item>
+      <title>Sloan and CSAIL launch joint workshop on responsible AI deployment</title>
+      <link>https://news.mit.edu/2024/responsible-ai-workshop-2024-09-04</link>
+      <guid isPermaLink="false">mit-news-2024-09-04-sloan-csail</guid>
+      <pubDate>Wed, 04 Sep 2024 14:15:00 GMT</pubDate>
+      <author>news@mit.edu (Adam Morton)</author>
+      <category>Research</category>
+      <description>A new MIT-wide workshop pairs CS researchers with Sloan economists to study deployment risk.</description>
+    </item>
+  </channel>
+</rss>

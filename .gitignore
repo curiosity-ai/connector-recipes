@@ -61,6 +61,11 @@ TODO.md
 # Generated SQLite database (recreated from data/seed.sql on first run)
 SqlSample/data/universities.db
 
+# Recipe-local watermarks / offsets / dedup files (recreated on each run)
+**/data/.watermark
+**/data/.offset
+**/data/.seen
+
 # Launch Settings inside projects that are under project/Properties
 **/.launchSettings.json
 **/*.launchSettings.json

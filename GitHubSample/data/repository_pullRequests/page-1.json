@@ -1,0 +1,44 @@
+{
+  "data": {
+    "repository": {
+      "pullRequests": {
+        "pageInfo": { "hasNextPage": false, "endCursor": null },
+        "nodes": [
+          {
+            "id": "PR_kwDOAAA001",
+            "number": 287,
+            "title": "Add MongoDB connector recipe",
+            "state": "MERGED",
+            "url": "https://github.com/curiosity-ai/connector-recipes/pull/287",
+            "createdAt": "2024-11-02T08:11:00Z",
+            "merged": true,
+            "author": { "login": "alice-chen" },
+            "labels": { "nodes": [ { "name": "ingestion" }, { "name": "docs" } ] },
+            "reviews": {
+              "nodes": [
+                { "id": "RV_001", "state": "APPROVED",          "author": { "login": "chiara-rossi" } },
+                { "id": "RV_002", "state": "CHANGES_REQUESTED", "author": { "login": "bilal-ahmed" } }
+              ]
+            }
+          },
+          {
+            "id": "PR_kwDOAAA002",
+            "number": 298,
+            "title": "Speed up neighbor-summary query for large graphs",
+            "state": "OPEN",
+            "url": "https://github.com/curiosity-ai/catalyst/pull/298",
+            "createdAt": "2024-11-15T12:48:00Z",
+            "merged": false,
+            "author": { "login": "chiara-rossi" },
+            "labels": { "nodes": [ { "name": "performance" }, { "name": "query-language" } ] },
+            "reviews": {
+              "nodes": [
+                { "id": "RV_003", "state": "APPROVED", "author": { "login": "alice-chen" } }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

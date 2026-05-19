@@ -1,0 +1,12 @@
+{"key":"S001/CS344/Fall 2024","value":{"eventType":"enrolled","studentId":"S001","courseCode":"CS344","term":"Fall 2024","status":"Enrolled","grade":"","occurredAt":"2024-08-21T09:14:00Z"}}
+{"key":"S002/CS210/Fall 2024","value":{"eventType":"enrolled","studentId":"S002","courseCode":"CS210","term":"Fall 2024","status":"Enrolled","grade":"","occurredAt":"2024-08-21T09:31:00Z"}}
+{"key":"S003/CS660/Fall 2024","value":{"eventType":"enrolled","studentId":"S003","courseCode":"CS660","term":"Fall 2024","status":"Enrolled","grade":"","occurredAt":"2024-08-21T10:02:00Z"}}
+{"key":"S001/MATH210/Fall 2024","value":{"eventType":"enrolled","studentId":"S001","courseCode":"MATH210","term":"Fall 2024","status":"Waitlisted","grade":"","occurredAt":"2024-08-21T10:11:00Z"}}
+{"key":"S004/CS210/Fall 2024","value":{"eventType":"enrolled","studentId":"S004","courseCode":"CS210","term":"Fall 2024","status":"Enrolled","grade":"","occurredAt":"2024-08-21T11:00:00Z"}}
+{"key":"S001/MATH210/Fall 2024","value":{"eventType":"status_changed","studentId":"S001","courseCode":"MATH210","term":"Fall 2024","status":"Enrolled","grade":"","occurredAt":"2024-08-26T15:40:00Z"}}
+{"key":"S005/STAT220/Fall 2024","value":{"eventType":"enrolled","studentId":"S005","courseCode":"STAT220","term":"Fall 2024","status":"Enrolled","grade":"","occurredAt":"2024-08-27T08:22:00Z"}}
+{"key":"S002/STAT220/Fall 2024","value":{"eventType":"enrolled","studentId":"S002","courseCode":"STAT220","term":"Fall 2024","status":"Enrolled","grade":"","occurredAt":"2024-08-27T09:18:00Z"}}
+{"key":"S006/PHIL110/Spring 2025","value":{"eventType":"enrolled","studentId":"S006","courseCode":"PHIL110","term":"Spring 2025","status":"Enrolled","grade":"","occurredAt":"2024-11-15T13:00:00Z"}}
+{"key":"S004/CS210/Fall 2024","value":{"eventType":"dropped","studentId":"S004","courseCode":"CS210","term":"Fall 2024","status":"Dropped","grade":"W","occurredAt":"2024-09-19T17:30:00Z"}}
+{"key":"S001/CS344/Fall 2024","value":{"eventType":"graded","studentId":"S001","courseCode":"CS344","term":"Fall 2024","status":"Completed","grade":"A","occurredAt":"2024-12-19T20:00:00Z"}}
+{"key":"S002/CS210/Fall 2024","value":{"eventType":"graded","studentId":"S002","courseCode":"CS210","term":"Fall 2024","status":"Completed","grade":"A-","occurredAt":"2024-12-19T20:00:00Z"}}

@@ -1,0 +1,89 @@
+{
+  "documentNumber": "MAN-HYD-004",
+  "title": "Atlas Copco GA75 Compressor Hydraulic Subsystem \u2014 Maintenance Manual",
+  "revision": "Rev. D",
+  "publishedAt": "2024-05-30T00:00:00Z",
+  "equipment": {
+    "id": "EQ-CMP-GA75-02",
+    "model": "GA75 VSD+",
+    "category": "Rotary Screw Compressor",
+    "serialNumber": "AC-GA75-55021",
+    "plant": "South Plant Utilities"
+  },
+  "manufacturer": {
+    "name": "Atlas Copco",
+    "country": "Sweden"
+  },
+  "authors": [
+    {
+      "employeeId": "T-1117",
+      "name": "Marek Janowski",
+      "trade": "Hydraulics"
+    },
+    {
+      "employeeId": "T-1001",
+      "name": "Jordan Reyes",
+      "trade": "Rotating Equipment"
+    }
+  ],
+  "hazards": [
+    "High-pressure oil",
+    "Hot surfaces",
+    "Stored hydraulic energy"
+  ],
+  "procedures": [
+    {
+      "id": "PRC-HYD-004-A",
+      "name": "Replace return-line filter element",
+      "category": "Preventive Maintenance",
+      "severity": "Low",
+      "page": 2,
+      "heading": "Section 4 \u2014 Hydraulic Filter Service",
+      "performedBy": "T-1117",
+      "parts": [
+        {
+          "partNumber": "FLT-HYD-10MIC",
+          "name": "Hydraulic Return-Line Filter 10 micron",
+          "category": "Filters"
+        },
+        {
+          "partNumber": "GSKT-ANSI-150",
+          "name": "ANSI 150 Spiral-Wound Gasket DN50",
+          "category": "Gaskets"
+        }
+      ]
+    },
+    {
+      "id": "PRC-HYD-004-B",
+      "name": "Drain and refill hydraulic reservoir",
+      "category": "Preventive Maintenance",
+      "severity": "Medium",
+      "page": 3,
+      "heading": "Section 5 \u2014 Oil Change",
+      "performedBy": "T-1117",
+      "parts": [
+        {
+          "partNumber": "OIL-ISO-VG46",
+          "name": "ISO VG46 Hydraulic Oil 20L",
+          "category": "Lubricants"
+        }
+      ]
+    },
+    {
+      "id": "PRC-HYD-004-C",
+      "name": "Inspect and lap check valve seat",
+      "category": "Corrective Maintenance",
+      "severity": "Medium",
+      "page": 4,
+      "heading": "Section 6 \u2014 Check-Valve Service",
+      "performedBy": "T-1001",
+      "parts": [
+        {
+          "partNumber": "VLV-CHK-DN50",
+          "name": "DN50 Swing Check Valve",
+          "category": "Valves"
+        }
+      ]
+    }
+  ]
+}
