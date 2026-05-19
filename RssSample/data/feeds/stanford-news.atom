@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Stanford News</title>
+  <link href="https://news.stanford.edu/feed/" rel="self"/>
+  <id>https://news.stanford.edu/feed/</id>
+  <updated>2024-11-21T08:30:00Z</updated>
+  <entry>
+    <id>stanford-news-2024-11-20-bio-foundation</id>
+    <title>Stanford Bio-X awards seed grants for foundation models in biology</title>
+    <link href="https://news.stanford.edu/2024/11/20/bio-foundation-grants" />
+    <updated>2024-11-20T18:00:00Z</updated>
+    <published>2024-11-20T15:00:00Z</published>
+    <author><name>Esha Patel</name><email>news@stanford.edu</email></author>
+    <category term="Research"/>
+    <category term="Biology"/>
+    <summary>Six labs received $250k each to apply transformer-style models to molecular biology.</summary>
+  </entry>
+  <entry>
+    <id>stanford-news-2024-11-04-quantum-fellowship</id>
+    <title>New quantum-information fellowship for incoming PhD students</title>
+    <link href="https://news.stanford.edu/2024/11/04/quantum-fellowship" />
+    <updated>2024-11-04T10:00:00Z</updated>
+    <published>2024-11-04T10:00:00Z</published>
+    <author><name>Vikram Singh</name><email>news@stanford.edu</email></author>
+    <category term="Research"/>
+    <category term="Quantum Mechanics"/>
+    <summary>The fellowship covers full tuition for the first two years of doctoral study.</summary>
+  </entry>
+</feed>

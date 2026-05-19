@@ -1,0 +1,99 @@
+{
+  "documentNumber": "MAN-MTR-002",
+  "title": "WEG W22 75kW Three-Phase Induction Motor \u2014 Service Manual",
+  "revision": "Rev. B",
+  "publishedAt": "2023-11-08T00:00:00Z",
+  "equipment": {
+    "id": "EQ-MTR-W22-75-04",
+    "model": "W22 IE3 75kW 4P",
+    "category": "AC Induction Motor",
+    "serialNumber": "WEG-22-99041-A",
+    "plant": "North Refinery Unit 4"
+  },
+  "manufacturer": {
+    "name": "WEG",
+    "country": "Brazil"
+  },
+  "authors": [
+    {
+      "employeeId": "T-1042",
+      "name": "Priya Subbu",
+      "trade": "Electrical"
+    },
+    {
+      "employeeId": "T-1208",
+      "name": "Aisha Kone",
+      "trade": "Reliability Engineering"
+    }
+  ],
+  "hazards": [
+    "Electrical shock (460V)",
+    "Arc flash",
+    "Suspended load during lift"
+  ],
+  "procedures": [
+    {
+      "id": "PRC-MTR-002-A",
+      "name": "Replace bearings (drive and non-drive end)",
+      "category": "Corrective Maintenance",
+      "severity": "High",
+      "page": 2,
+      "heading": "Section 3 \u2014 Bearing Replacement",
+      "performedBy": "T-1042",
+      "parts": [
+        {
+          "partNumber": "BRG-7308BEP",
+          "name": "Angular Contact Bearing 40mm",
+          "category": "Bearings"
+        },
+        {
+          "partNumber": "BRG-6206-2RS",
+          "name": "Sealed Deep-Groove Ball Bearing 30mm",
+          "category": "Bearings"
+        },
+        {
+          "partNumber": "SEAL-LIP-32",
+          "name": "Lip Seal 32mm Nitrile",
+          "category": "Seals"
+        }
+      ]
+    },
+    {
+      "id": "PRC-MTR-002-B",
+      "name": "Megger insulation resistance test",
+      "category": "Predictive Maintenance",
+      "severity": "Low",
+      "page": 3,
+      "heading": "Section 4 \u2014 Electrical Testing",
+      "performedBy": "T-1042",
+      "parts": [
+        {
+          "partNumber": "BRSH-CRBN-12",
+          "name": "Carbon Motor Brush 12mm Pair",
+          "category": "Electrical"
+        }
+      ]
+    },
+    {
+      "id": "PRC-MTR-002-C",
+      "name": "Coupling alignment to driven pump",
+      "category": "Reliability Inspection",
+      "severity": "Medium",
+      "page": 4,
+      "heading": "Section 5 \u2014 Alignment Procedure",
+      "performedBy": "T-1208",
+      "parts": [
+        {
+          "partNumber": "CPLG-FLEX-32",
+          "name": "Flexible Jaw Coupling 32mm",
+          "category": "Couplings"
+        },
+        {
+          "partNumber": "BLT-M8-FLG",
+          "name": "Flanged Bolt M8 x 30 Stainless",
+          "category": "Fasteners"
+        }
+      ]
+    }
+  ]
+}

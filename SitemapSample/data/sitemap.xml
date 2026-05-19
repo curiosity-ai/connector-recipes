@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.mit.edu/about/</loc>
+    <lastmod>2024-09-12</lastmod>
+  </url>
+  <url>
+    <loc>https://www.mit.edu/admissions/</loc>
+    <lastmod>2024-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://www.mit.edu/research/labs/csail/</loc>
+    <lastmod>2024-11-01</lastmod>
+  </url>
+  <url>
+    <loc>https://www.cmu.edu/about/</loc>
+    <lastmod>2024-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.cmu.edu/scs/cs/</loc>
+    <lastmod>2024-10-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.stanford.edu/research/</loc>
+    <lastmod>2024-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://www.berkeley.edu/about/</loc>
+    <lastmod>2024-09-30</lastmod>
+  </url>
+
+  <!-- This URL duplicates the first one with tracking params: the canonicalizer
+       must collapse it back to the original. -->
+  <url>
+    <loc>https://www.mit.edu/about/?utm_source=newsletter&amp;utm_campaign=fall24</loc>
+    <lastmod>2024-09-12</lastmod>
+  </url>
+</urlset>

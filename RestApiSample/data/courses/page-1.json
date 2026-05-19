@@ -1,0 +1,54 @@
+{
+  "items": [
+    {
+      "code": "MATH101",
+      "title": "Calculus I",
+      "level": "Undergraduate",
+      "credits": 4,
+      "capacity": 120,
+      "subjects": ["Calculus"],
+      "terms": ["Fall 2024", "Spring 2025"],
+      "instructors": [
+        { "email": "a.morton@mit.edu", "name": "Adam Morton" },
+        { "email": "j.zhao@mit.edu",   "name": "Jing Zhao" }
+      ]
+    },
+    {
+      "code": "MATH210",
+      "title": "Linear Algebra",
+      "level": "Undergraduate",
+      "credits": 3,
+      "capacity": 90,
+      "subjects": ["Linear Algebra"],
+      "terms": ["Fall 2024"],
+      "instructors": [
+        { "email": "r.fields@mit.edu", "name": "Renee Fields" }
+      ]
+    },
+    {
+      "code": "CS210",
+      "title": "Data Structures",
+      "level": "Undergraduate",
+      "credits": 4,
+      "capacity": 150,
+      "subjects": ["Data Structures", "Algorithms"],
+      "terms": ["Fall 2024", "Spring 2025"],
+      "instructors": [
+        { "email": "p.wilson@cmu.edu", "name": "Paula Wilson" }
+      ]
+    },
+    {
+      "code": "CS344",
+      "title": "Introduction to Machine Learning",
+      "level": "Undergraduate",
+      "credits": 4,
+      "capacity": 180,
+      "subjects": ["Machine Learning", "ML Foundations"],
+      "terms": ["Spring 2025"],
+      "instructors": [
+        { "email": "h.ortega@cmu.edu", "name": "Hugo Ortega" }
+      ]
+    }
+  ],
+  "nextCursor": "page-2.json"
+}

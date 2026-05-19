@@ -1,0 +1,37 @@
+{
+  "studentId": "S002",
+  "bio": "Quantitative methods graduate student, focused on Bayesian inference.",
+  "githubUrl": "https://github.com/bilal-ahmed",
+  "linkedin": "https://linkedin.com/in/bilal-ahmed",
+  "skills": ["R", "Python", "Statistics", "Bayesian Inference"],
+  "interests": ["Causal Inference", "Public Policy"],
+  "internships": [
+    {
+      "id": "S002/JaneStreet/2023",
+      "company": "Jane Street",
+      "industry": "Finance",
+      "website": "https://janestreet.com",
+      "role": "Quantitative Research Intern",
+      "startYear": 2023,
+      "endYear": 2023
+    },
+    {
+      "id": "S002/RAND/2024",
+      "company": "RAND Corporation",
+      "industry": "Policy Research",
+      "website": "https://rand.org",
+      "role": "Statistical Researcher",
+      "startYear": 2024,
+      "endYear": 2024
+    }
+  ],
+  "projects": [
+    {
+      "id": "S002/causal-bench",
+      "name": "Causal Inference Benchmark",
+      "description": "Reproducible benchmark suite for causal-inference algorithms on policy datasets.",
+      "url": "https://github.com/bilal-ahmed/causal-bench",
+      "skills": ["R", "Statistics", "Causal Inference"]
+    }
+  ]
+}

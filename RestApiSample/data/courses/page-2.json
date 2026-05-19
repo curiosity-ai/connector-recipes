@@ -1,0 +1,54 @@
+{
+  "items": [
+    {
+      "code": "CS544",
+      "title": "Deep Learning",
+      "level": "Graduate",
+      "credits": 4,
+      "capacity": 80,
+      "subjects": ["Deep Learning", "Neural Networks"],
+      "terms": ["Spring 2025"],
+      "instructors": [
+        { "email": "h.ortega@cmu.edu", "name": "Hugo Ortega" },
+        { "email": "k.iverson@cmu.edu", "name": "Kasey Iverson" }
+      ]
+    },
+    {
+      "code": "STAT220",
+      "title": "Probability and Statistics",
+      "level": "Undergraduate",
+      "credits": 3,
+      "capacity": 100,
+      "subjects": ["Statistics", "Probability"],
+      "terms": ["Fall 2024", "Spring 2025"],
+      "instructors": [
+        { "email": "m.lin@berkeley.edu", "name": "Mei Lin" }
+      ]
+    },
+    {
+      "code": "ECON201",
+      "title": "Microeconomic Theory",
+      "level": "Undergraduate",
+      "credits": 3,
+      "capacity": 110,
+      "subjects": ["Microeconomics"],
+      "terms": ["Fall 2024"],
+      "instructors": [
+        { "email": "g.hartl@berkeley.edu", "name": "Greta Hartl" }
+      ]
+    },
+    {
+      "code": "PHIL110",
+      "title": "Introduction to Logic",
+      "level": "Undergraduate",
+      "credits": 3,
+      "capacity": 60,
+      "subjects": ["Logic"],
+      "terms": ["Spring 2025"],
+      "instructors": [
+        { "email": "n.davies@oxford.ac.uk", "name": "Nigel Davies" }
+      ]
+    }
+  ],
+  "nextCursor": "page-3.json"
+}

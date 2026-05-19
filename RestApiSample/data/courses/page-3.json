@@ -1,0 +1,41 @@
+{
+  "items": [
+    {
+      "code": "PHYS221",
+      "title": "Quantum Mechanics I",
+      "level": "Graduate",
+      "credits": 4,
+      "capacity": 40,
+      "subjects": ["Quantum Mechanics", "Physics"],
+      "terms": ["Fall 2024"],
+      "instructors": [
+        { "email": "v.singh@stanford.edu", "name": "Vikram Singh" }
+      ]
+    },
+    {
+      "code": "BIO150",
+      "title": "Molecular Biology",
+      "level": "Undergraduate",
+      "credits": 4,
+      "capacity": 130,
+      "subjects": ["Biology", "Molecular Biology"],
+      "terms": ["Spring 2025"],
+      "instructors": [
+        { "email": "e.patel@stanford.edu", "name": "Esha Patel" }
+      ]
+    },
+    {
+      "code": "CS660",
+      "title": "Distributed Systems",
+      "level": "Graduate",
+      "credits": 4,
+      "capacity": 50,
+      "subjects": ["Distributed Systems"],
+      "terms": ["Fall 2024"],
+      "instructors": [
+        { "email": "t.ng@mit.edu", "name": "Terrence Ng" }
+      ]
+    }
+  ],
+  "nextCursor": null
+}
