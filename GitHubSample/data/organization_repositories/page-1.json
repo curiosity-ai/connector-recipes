@@ -5,24 +5,6 @@
         "pageInfo": { "hasNextPage": false, "endCursor": null },
         "nodes": [
           {
-            "nameWithOwner": "curiosity-ai/mosaik",
-            "description": "Curiosity Mosaik workspace platform.",
-            "url": "https://github.com/curiosity-ai/mosaik",
-            "primaryLanguage": { "name": "C#" },
-            "stargazerCount": 412,
-            "forkCount": 38,
-            "isArchived": false,
-            "createdAt": "2021-04-17T10:14:22Z",
-            "owner": { "login": "curiosity-ai" },
-            "repositoryTopics": {
-              "nodes": [
-                { "topic": { "name": "knowledge-graph" } },
-                { "topic": { "name": "csharp" } },
-                { "topic": { "name": "search" } }
-              ]
-            }
-          },
-          {
             "nameWithOwner": "curiosity-ai/catalyst",
             "description": "Industrial-strength NLP framework for .NET.",
             "url": "https://github.com/curiosity-ai/catalyst",

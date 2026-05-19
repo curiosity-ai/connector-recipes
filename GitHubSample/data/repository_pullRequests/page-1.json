@@ -6,10 +6,10 @@
         "nodes": [
           {
             "id": "PR_kwDOAAA001",
-            "number": 1287,
+            "number": 287,
             "title": "Add MongoDB connector recipe",
             "state": "MERGED",
-            "url": "https://github.com/curiosity-ai/mosaik/pull/1287",
+            "url": "https://github.com/curiosity-ai/connector-recipes/pull/287",
             "createdAt": "2024-11-02T08:11:00Z",
             "merged": true,
             "author": { "login": "alice-chen" },
@@ -23,10 +23,10 @@
           },
           {
             "id": "PR_kwDOAAA002",
-            "number": 1298,
+            "number": 298,
             "title": "Speed up neighbor-summary query for large graphs",
             "state": "OPEN",
-            "url": "https://github.com/curiosity-ai/mosaik/pull/1298",
+            "url": "https://github.com/curiosity-ai/catalyst/pull/298",
             "createdAt": "2024-11-15T12:48:00Z",
             "merged": false,
             "author": { "login": "chiara-rossi" },
